@@ -112,13 +112,11 @@ async def start(bot, message):
             )
         )
     else:
-         reply_markup = InlineKeyboardMarkup(buttons)
-        await message.reply_photo(
-            photo="https://telegra.ph/file/e5252081a9271b4dda985.jpg",
-            caption=script.START_TXT.format(message.from_user.mention),
-            reply_markup=reply_markup,
-            parse_mode='html'
-        )
+         await message.reply_text(
+            START_MSG.format(message.from_user.first_name),
+            parse_mode="Markdown",
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
                 [
                     [
                         InlineKeyboardButton
